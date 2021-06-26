@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seção 11 - Parte 3</title>
+    <meta charset="utf-8">
+    <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .div_pagina {
+            height: 100%;
+            padding: 10px 10px 10px 10px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <p class="display-3">Bootstrap e JavaScript</p>
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <p class="lead">Clique nos botões para exibir ou esconder os cards.</p>
+            <button class="btn btn-secondary btn-lg" data-toggle="collapse" data-target="#card1">Collapse Card 1</button>
+            <button class="btn btn-secondary btn-lg" data-toggle="collapse" data-target="#card2">Collapse Card 2</button>
+            <button class="btn btn-secondary btn-lg" data-toggle="collapse" data-target="#card3">Collapse Card 3</button>
+            <button class="btn btn-secondary btn-lg" data-toggle="collapse" data-target="#card4">Collapse Card 4</button>
+        </div>
+        <div class="row">
+                <div class="col-3 collapse" id="card1">
+                    <div class="card text-center">
+                        <img src="imagens/surf1.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Surf Card 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 collapse" id="card2">
+                    <div class="card text-center">
+                        <img src="imagens/surf2.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Surf Card 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 collapse" id="card3">
+                    <div class="card text-center">
+                        <img src="imagens/surf3.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Surf Card 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 collapse" id="card4">
+                    <div class="card text-center">
+                        <img src="imagens/surf4.jpg" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Surf Card 4</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <a href="#" class="btn btn-primary">Saiba Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row" style="height: 500px;">
+            <div class="col div_pagina">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <script src="bootstrap-4.3.1-dist/js/jquery-3.4.0.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+</body>
+</html>

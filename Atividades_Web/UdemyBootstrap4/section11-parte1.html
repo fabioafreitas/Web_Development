@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seção 11 - Parte 1</title>
+    <meta charset="utf-8">
+    <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .div_esq {
+            height: 100%;
+            padding: 10px 10px 10px 10px;
+            background-color: cadetblue;
+        }
+
+        .div_dir {
+            height: 100%;
+            padding: 10px 10px 10px 10px;
+            background-color:darkkhaki;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <p class="display-3">Bootstrap e JavaScript</p>
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p></p>
+            <button class="btn btn-primary btn-lg" data-toggle="popover" title="Título do popover" data-content="Lorem ipsum dolor sit amet,consectetur adipiscing elit." data-placement="bottom">Popover</button>
+            <button class="btn btn-primary btn-lg" data-toggle="tooltip" title="Título do tooltip" data-placement="bottom">Tooltip</button>
+            <button class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#conteudoModal">Ativar Modal</button>
+        </div>
+        <div class="text-center">
+            <!-- Modal -->
+            <div id="conteudoModal" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+    
+                        <!-- Header -->
+                        <div class="modal-header">
+                            <h4>Meu Modal</h4>
+                            <button class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+    
+                        <!-- Content(body) -->
+                        <div class="modal-body">
+                            <div class="row" style="font-size: 16pt; color: white">
+                                <div class="col-4" style="background-color: red">
+                                        Texto do meu modal parte 1
+                                </div>
+                                <div class="col-4" style="background-color: green">
+                                        Texto do meu modal parte 2
+                                </div>
+                                <div class="col-4" style="background-color: blue">
+                                        Texto do meu modal parte 3
+                                </div>
+                            </div>
+                            .
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height: 500px;">
+            <div class="col-3 div_esq">
+
+                
+            </div>
+            <div class="col-9 div_dir">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <script src="bootstrap-4.3.1-dist/js/jquery-3.4.0.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            $(function(){
+                $('[data-toggle="popover"]').popover()
+                $('[data-toggle="tooltip"]').tooltip()
+                
+            });
+        </script>
+    </footer>
+</body>
+</html>

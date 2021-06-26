@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 01 - Vue.js de um jeito ninja!</title>
+
+</head>
+<body>
+
+    <div id="app">
+        <h1 v-if="boolTitulo">{{ titulo }}</h1>
+        <ul>
+            <li v-for="(item, index) in linguagens">{{ index }}-{{item.nome}}</li>
+        </ul>
+        <br>
+        <input type="text" v-model="inputNome">
+        <br>
+        Meu nome é {{ inputNome }}
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Título VueJs",
+                boolTitulo: true,
+                inputNome: "",
+                linguagens: [
+                    { nome: "Javascript" },
+                    { nome: "Java" },
+                    { nome: "Typescript" },
+                    { nome: "C#" },
+                    { nome: "PHP" },
+                    { nome: "Python" },
+                    { nome: "Haskell" }
+                ]
+            }
+        });
+        var app2 = new Vue({
+            el: "#app2",
+            data: {
+                
+            }
+        });
+    </script>
+</body>
+</html>

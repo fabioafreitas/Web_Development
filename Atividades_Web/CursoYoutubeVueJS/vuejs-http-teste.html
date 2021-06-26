@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="app">
+        <a :href="endereco">Google</a>
+    </div>
+    <script src="framework/vue.js"></script>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                endereco: "http://www.google.com"
+            },
+            methods:{
+                
+            }
+        });
+    </script>
+</body>
+</html>

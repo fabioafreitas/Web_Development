@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seção 11 - Parte 5</title>
+    <meta charset="utf-8">
+    <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .formatacao {
+            width: auto;
+            height: 100vh;
+            padding: 15px;
+            background-color: cadetblue;
+        }
+
+        .formatacao img {
+            height: 70vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <p class="display-3">Bootstrap e JavaScript</p>
+    </div>
+    <div class="container-fluid formatacao">
+        <div class="container">
+            <div id="meuSlideShow" class="carousel slide" data-ride="carousel">
+
+                <!--Barrinha abaixo das imagens (indicadores)-->
+                <div class="carousel-indicators">
+                    <li data-target="#meuSlideShow" data-slide-to="0" class="active"></li>
+                    <li data-target="#meuSlideShow" data-slide-to="1"></li>
+                    <li data-target="#meuSlideShow" data-slide-to="2"></li>
+                    <li data-target="#meuSlideShow" data-slide-to="3"></li>
+                </div>
+
+                <!--Conteúdo do carrossel-->
+                <div class="carousel-inner text-center" >
+                    <!--Imagem 1-->
+                    <div class="carousel-item active">
+                        <img src="imagens/surf1.jpg" class="img-thumbnail img-fluid">
+                    </div>
+    
+                    <!--Imagem 2-->
+                    <div class="carousel-item">
+                        <img src="imagens/surf2.jpg" class="img-thumbnail img-fluid">
+                    </div>
+                        
+                    <!--Imagem 3-->
+                    <div class="carousel-item">
+                        <img src="imagens/surf3.jpg" class="img-thumbnail img-fluid">
+                    </div>
+    
+                    <!--Imagem 4-->
+                    <div class="carousel-item">
+                        <img src="imagens/surf4.jpg" class="img-thumbnail img-fluid">
+                    </div>
+                </div>
+    
+                <!--Voltar-->
+                <a class="carousel-control-prev" href="#meuSlideShow" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+    
+                <!--Avançar-->
+                <a class="carousel-control-next" href="#meuSlideShow" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+    
+            </div>
+        </div>
+    </div>
+    <footer>
+        <script src="bootstrap-4.3.1-dist/js/jquery-3.4.0.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+</body>
+</html>

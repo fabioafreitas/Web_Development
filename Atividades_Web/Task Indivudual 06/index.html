@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FUNDAMENTOS DE VUEJS</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Fabio Alves">
+    <script src="framework/vue.js"></script>
+    <style>
+        h2 {
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgb(4, 157, 255);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th {
+            background-color: rgb(255,249,218);
+        }
+        
+        table, th, td {
+            border: 1px solid black;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Exemplo de Manipulação de Array e Objetos em JavaScript</h1>
+        <section>
+            <fieldset>
+                <legend>Manutenção de Funcionários</legend>
+                <br>
+                Por favor, preencha os dados abaixo:
+                <br>
+                <br>
+                CPF: <input type="text" v-model="funcionario.cpf" autofocus  minlength="11" maxlength="11">
+                Nome: <input type="text" v-model="funcionario.nome">
+                Cargo: <input type="text" v-model="funcionario.cargo">
+                Salário: <input type="text" v-model="funcionario.salario">
+                <button @click="inserir">Adicionar</button>
+            </fieldset>
+        </section>
+        <br>
+        <h2 style="border-style: solid;">Lista de Funcionários</h2>
+        <section>
+            <button @click="orderByCpf">Ordenar por Cpf</button>
+            <button @click="orderByNome">Ordenar por Nome</button>
+            <button @click="orderBySalario">Ordenar por Salário (DESC)</button>
+            Salario maior que:
+            <input type="text" v-model="filtroSalario">
+            <button @click="filtrar">Filtrar</button>
+        </section>
+        <br>
+        <table id="tabela">
+            <tr>
+                <th style="width:10%">Cpf</th>
+                <th style="width:30%">Nome</th>
+                <th style="width:25%">Cargo</th>
+                <th style="width:25%">Salário</th>
+                <th style="width:10%"></th>
+            </tr>
+            <tr v-for="(func, index) in funcionarioTable">
+                <td v-for="atributo in func">{{atributo}}</td>  
+                <td>
+                    <button @click="remover(index)">Remover</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                filtroSalario: 0,
+                funcionarioList: [],
+                funcionarioTable: [],
+                funcionario: {cpf: "",nome: "",cargo: "",salario: ""}
+            },
+            methods: {
+                inserir: function() {
+                    if(this.funcionarioValidarDados) {
+                        if(!this.funcionarioJaExiste) {
+                        this.funcionarioList.push(this.funcionario)
+                        this.funcionarioTable.push(this.funcionario)
+                        this.funcionario = {cpf:"",nome:"",cargo:"",salario:""}
+                    }
+                    }
+                },
+                remover: function(index) {
+                    for (i = 0; i < this.funcionarioList.length; i++) {
+                        if(this.funcionarioList[i].cpf == this.funcionarioTable[index].cpf) {
+                            this.funcionarioList.splice(i, 1)
+                        }
+                    }
+                    this.funcionarioTable.splice(index, 1)
+                },
+                filtrar: function() {
+                    if(this.validarFiltrarSalario) {
+                        this.funcionarioTable = this.funcionarioList.filter(func => func.salario > this.filtroSalario)
+                    }
+                },
+                orderByCpf: function() {
+                    return this.funcionarioTable.sort(function(a, b) {
+                        return a.cpf.localeCompare(b.cpf, undefined, {
+                        numeric: true,
+                        sensitivity: 'base'
+                        });
+                    });
+                },
+                orderByNome: function() {
+                    return this.funcionarioTable.sort(function(a, b) {
+                        return a.nome.localeCompare(b.nome, undefined, {
+                            numeric: true,
+                            sensitivity: 'base'
+                        });
+                    });
+                },
+                orderBySalario: function() {
+                    return this.funcionarioTable.sort(function(a, b) {
+                        return b.salario - a.salario;
+                    });
+                }
+            },
+            computed: {
+                funcionarioJaExiste: function() {
+                    for(i = 0; i < this.funcionarioList.length ; i++){
+                        if(this.funcionario.cpf == this.funcionarioList[i].cpf) {
+                            alert("Funcionário já existe")
+                            return true
+                        }
+                    }
+                    return false;
+                },
+                funcionarioValidarDados: function() {
+                    cpf = this.funcionario.cpf
+                    nome = this.funcionario.nome
+                    cargo = this.funcionario.cargo
+                    salario = this.funcionario.salario
+                    if(cpf == "" || nome == "" || cargo == "" || salario == "") {
+                        alert("Algum campo não foi preenchido!");
+                        return false
+                    }   
+                    else if(isNaN(cpf) || cpf%1!=0 || cpf<0 || cpf.length != 11) {
+                        alert("Cpf Inválido!");
+                        return false
+                    }
+                    else if( !isNaN(nome) ) {
+                        alert("Nome inválido!");
+                        return false
+                    }
+                    else if( !isNaN(cargo) ) {
+                        alert("Cargo inválido!");
+                        return false
+                    }
+                    else if(isNaN(salario) || salario < 0) {
+                        alert("Salário Inválido!");
+                        return false
+                    }
+                    return true
+                },
+                validarFiltrarSalario: function() {
+                    if(this.filtroSalario == "" || isNaN(this.filtroSalario) || this.filtroSalario < 0) {
+                        alert("Filtro: Salário inválido!");
+                        return false;
+                    }
+                    return true
+                }
+            },
+            mounted: function() {
+                this.funcionarioList.push({cpf:"11122233344",nome:"fabio",cargo:"analista de requisitos",salario:10000})
+                this.funcionarioList.push({cpf:"22233344455",nome:"eduarda",cargo:"gerente de projeto",salario:12000})
+                this.funcionarioList.push({cpf:"33344455566",nome:"darc",cargo:"testadora",salario:14000})
+                this.funcionarioList.push({cpf:"77788899900",nome:"joselito",cargo:"desenvolvedor front-end",salario:16000})
+                this.funcionarioList.push({cpf:"12345678901",nome:"maria",cargo:"desenvolvedor back-end",salario:18000})
+                this.funcionarioTable.push(this.funcionarioList[0])
+                this.funcionarioTable.push(this.funcionarioList[1])
+                this.funcionarioTable.push(this.funcionarioList[2])
+                this.funcionarioTable.push(this.funcionarioList[3])
+                this.funcionarioTable.push(this.funcionarioList[4])
+            }
+        });
+    </script>
+</body>
+</html>

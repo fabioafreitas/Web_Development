@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seção 11 - Parte 2</title>
+    <meta charset="utf-8">
+    <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .div_pagina {
+            height: 100%;
+            padding: 10px 10px 10px 10px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <p class="display-3">Bootstrap e JavaScript</p>
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="btn btn-secondary btn-lg" data-nome="fabio" data-toggle="modal" data-target="#conteudoModal">Modal Fábio</button>
+            <button class="btn btn-secondary btn-lg" data-nome="eduarda" data-toggle="modal" data-target="#conteudoModal">Modal Eduarda</button>
+            <button class="btn btn-secondary btn-lg" data-nome="joselito" data-toggle="modal" data-target="#conteudoModal">Modal Joselito</button>
+            <button class="btn btn-secondary btn-lg" data-nome="darc" data-toggle="modal" data-target="#conteudoModal">Modal Darc</button>
+        </div>
+        <div class="text-center">
+            <!-- Modal -->
+            <div id="conteudoModal" class="modal fade">
+
+                <!-- classe para o modal ficar no centro da tela: modal-dialog-centered -->
+                <div class="modal-dialog modal">
+                    <div class="modal-content">
+    
+                        <!-- Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Meu Modal</h4>
+                            <button class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+    
+                        <!-- Content(body) -->
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span>Destinatário: </span>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="para" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Rodapé -->
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height: 500px;">
+            <div class="col div_pagina">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <script src="bootstrap-4.3.1-dist/js/jquery-3.4.0.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/JavaScript">
+            $('#conteudoModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var recipient = button.data('nome');
+                var modal = $(this);
+                modal.find('.modal-title').text('Mensagem para '+recipient);
+                modal.find('.modal-body input').val(recipient);
+            });
+        </script>
+    </footer>
+</body>
+</html>

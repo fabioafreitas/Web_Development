@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <title>Task Individual 07</title>   
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-light bg-light">
+            <div class="mx-auto">
+                <a class="navbar-brand" href="#">
+                    <img class="img-fluid" src="images/logo.png" alt="logo" style="max-width: 200px">
+                </a>
+            </div>
+        </nav>
+        <div class="container" >
+            <div class="row" style="margin-top: 5vh">
+                <div class="col-3">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Valor $</span>
+                        </div>
+                        <input type="number" class="form-control" v-model="valorConverter">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Moeda Origem</span>
+                        </div>
+                        <select class="custom-select" v-model="moedaOrigem">
+                            <option v-for="sigla in moedas" v-bind:value="sigla[0]">{{sigla[1]}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Moeda Destino</span>
+                        </div>
+                        <select class="custom-select" v-model="moedaDestino">
+                            <option v-for="(sigla, index) in moedas" v-bind:value="sigla[0]">{{sigla[1]}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <button class="btn btn-secondary" @click="converterMoeda()">Converter</button>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 5vh">
+                <div class="col-12">
+                    <div class="alert text-center" v-bind:class="estiloAlert" role="alert">
+                        <a v-if="condicaoAlert">{{msg.entrada | filtroMoney}} {{msg.origem}} 
+                            equivale a {{msg.saida | filtroMoney}} {{msg.destino}}</a>
+                        <a v-else>{{msg.texto}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <footer>
+        <script type="text/javascript" src="vuejs/vue.js"></script>
+        <script type="text/javascript" src="axios/axios.min.js"></script>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    url: 'https://api.exchangeratesapi.io',
+                    moedas: [
+                        ["EUR", "Euro"],
+                        ["BGN", "Bulgaria Lev"],
+                        ["NZD", "New Zealand Dollar"],
+                        ["ILS", "Israel Shekel"],
+                        ["RUB", "Russia Ruble"],
+                        ["CAD", "Canada Dollar"],
+                        ["USD", "United States Dollar"],
+                        ["PHP", "Philippines Peso"],
+                        ["CHF", "Switzerland Franc"],
+                        ["ZAR", "South Africa Rand"],
+                        ["AUD", "Australia Dollar"],
+                        ["JPY", "Japan Yen"],
+                        ["TRY", "Turkey Lira"],
+                        ["HKD", "Hong Kong Dollar"],
+                        ["MYR", "Malaysia Ringgit"],
+                        ["THB", "Thailand Baht"],
+                        ["HRK", "Croatia Kuna"],
+                        ["NOK", "Norway Krone"],
+                        ["IDR", "Indonesia Rupiah"],
+                        ["DKK", "Denmark Krone"],
+                        ["CZK", "Czech Republic Koruna"],
+                        ["HUF", "Hungary Forint"],
+                        ["GBP", "United Kingdom Pound"],
+                        ["MXN", "Mexico Peso"],
+                        ["KRW", "Korea (South) Won"],
+                        ["ISK", "Iceland Krona"],
+                        ["SGD", "Singapore Dollar"],
+                        ["BRL", "Brazil Real"],
+                        ["PLN", "Poland Zloty"],
+                        ["INR", "India Rupee"],
+                        ["RON", "Romania Leu"],
+                        ["CNY", "China Yuan Renminbi"],
+                        ["SEK", "Sweden Krona"]],
+                    respostaJSON: {},
+                    
+                    moedaOrigem: '',
+                    moedaDestino: '',
+                    valorConverter: 0,
+                    
+                    estiloAlert: '',
+                    condicaoAlert: false,
+
+                    msg: {
+                        texto: '',
+                        origem: '',
+                        destino: '',
+                        entrada: '',
+                        saida: ''
+                    }
+
+                },
+                methods: {
+                    converterMoeda() {
+                        if(isNaN(this.valorConverter) || this.valorConverter === '') {
+                            this.condicaoAlert = false
+                            this.estiloAlert = 'alert-warning'
+                            this.msg.texto = 'Valor a ser convertido é inválido!'
+                        } else if(this.moedaOrigem === '') {
+                            this.condicaoAlert = false
+                            this.estiloAlert = 'alert-warning'
+                            this.msg.texto = 'Selecione uma moeda origem'
+                        } else if(this.moedaDestino === '') {
+                            this.condicaoAlert = false
+                            this.estiloAlert = 'alert-warning'
+                            this.msg.texto = 'Selecione uma moeda destino'
+                        } else {
+                            this.condicaoAlert = true
+                            this.estiloAlert = 'alert-success'
+                            this.msg.origem = this.moedaOrigem
+                            this.msg.destino = this.moedaDestino
+                            this.msg.entrada = parseFloat(this.valorConverter) // Não sei porque, mas sem o parseFloat não funciona
+                            var moedaBase = this.respostaJSON.base
+                            var origem = destino = 1
+                            if(moedaBase != this.moedaOrigem) {
+                                origem = this.respostaJSON.rates[this.moedaOrigem]
+                            }
+                            if(moedaBase != this.moedaDestino) {
+                                destino = this.respostaJSON.rates[this.moedaDestino]
+                            }
+                            var resultado = (destino*this.valorConverter)/origem
+                            this.msg.saida = resultado
+                        }
+                    }
+                },
+                filters: {
+                    filtroMoney: function(valor) {
+                        return ((valor).toFixed(2)).replace('.', ',');
+                    }
+                },
+                mounted() {
+                    axios.get(this.url+'/latest').then(response => {
+                        this.respostaJSON = response.data
+                    }).catch(erro => {
+                        this.condicaoAlert = false
+                        this.estiloAlert = 'alert-danger'
+                        this.msg.texto = "Requisição falhou, verifique sua conexão com a internet!"
+                    })
+                }
+            });
+        </script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Vuejs</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <button class="btn" :class="btnClassEnviar">ENVIAR</button>
+        <button class="btn" :class="btnClassLimpar">LIMPAR</button>
+    </div>
+    <footer>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+        <script>
+            var app = new Vue({
+                el: "#app",
+                data: {
+                    titulo: "vuejs de um jeito ninja",
+                    btnClassEnviar: {
+                        'btn-danger': true,
+                        'btn-sm': false
+                    },
+                    btnClassLimpar: [
+                        'btn-warning',
+                        {'btn-lg': true}
+                    ]
+                }
+            });
+        </script>
+    </footer>
+</body>
+</html>

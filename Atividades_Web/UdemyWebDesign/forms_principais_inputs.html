@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+    <form action="processa.php" method="get">
+        <label style="color: crimson">USERNAME</label>
+        <input type="text" name="texto1" placeholder="Texto que some">
+        <hr><br>
+        <label style="color: cornflowerblue">PASSWORD</label>
+        <input type="password" name="pass1" placeholder="fica oculto">
+        <hr><br>
+        <label style="color: chocolate">Hidden Info</label>
+        <input type="hidden" name="Escondido" value="msg oculta">
+        <hr><br>
+        <label>Select</label>
+        <select name="selecao">
+            <option value="1">opção 1</option>
+            <option value="2">opção 2</option>
+            <option value="3">opção 3</option>
+            <option value="4">opção 4</option>
+        </select>
+        <hr><br>
+        <label>Rádio</label>
+        <input type="radio" name="radio1" value="1">Valor1
+        <input type="radio" name="radio1" value="1">Valor2
+        <input type="radio" name="radio1" value="1">Valor3
+        <input type="radio" name="radio1" value="1">Valor3
+        <hr><br>
+        <label>Checkbox</label><br>
+        <input type="checkbox" name="check1" value="1">check1<br>
+        <input type="checkbox" name="check1" value="2">check2<br>
+        <input type="checkbox" name="check1" value="3">check3<br>
+        <input type="checkbox" name="check1" value="4">check4<br>
+        <hr><br>
+        <label>Botão</label>
+        <input type="submit" value="Envia Todas as informações do formulário para o arquivo processa.php" name="sbt">
+        <input type="button" value="Enviar2" name="btn">
+        
+    </form>
+</body>
+</html>

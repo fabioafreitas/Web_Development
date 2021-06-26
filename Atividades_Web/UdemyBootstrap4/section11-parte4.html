@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seção 11 - Parte 4</title>
+    <meta charset="utf-8">
+    <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .conteudo {
+            width: auto;
+            height: 100vh;
+            padding: 15px;
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body class="bg">
+    <div class="container-fluid">
+        <p class="display-3">Bootstrap e JavaScript</p>
+    </div>
+    <div class="container-fluid conteudo">
+        <div class="row" style="height: 500px;">
+
+            <div id="livroCapitulos" class="col-4">
+                <a class="list-group-item list-group-item-action" href="#c1">Capítulo 1</a>
+                <a class="list-group-item list-group-item-action" href="#c2">Capítulo 2</a>
+                <a class="list-group-item list-group-item-action" href="#c3">Capítulo 3</a>
+                <a class="list-group-item list-group-item-action" href="#c4">Capítulo 4</a>
+                <a class="list-group-item list-group-item-action" href="#c5">Capítulo 5</a>
+            </div>
+            <div class="col-8" id="caixaLivro" style="background-color: white; position: relative; height: 500px; overflow: auto">
+
+                <h3 id="c1">Capítulo 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam velit erat, consectetur vitae tellus et, ornare posuere eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas aliquam diam sit amet metus porta, nec hendrerit ligula blandit. Integer faucibus tellus eros, et rhoncus dui malesuada efficitur. Mauris at dolor eget nibh ullamcorper ultrices ut a felis. Nulla facilisi. Donec sit amet tortor vel nibh accumsan sollicitudin vel sit amet massa. Donec non ornare lectus, eu fermentum tellus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam velit erat, consectetur vitae tellus et, ornare posuere eros. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas aliquam diam sit amet metus porta, nec hendrerit ligula blandit. Integer faucibus tellus eros, et rhoncus dui malesuada efficitur. Mauris at dolor eget nibh ullamcorper ultrices ut a felis. Nulla facilisi. Donec sit amet tortor vel nibh accumsan sollicitudin vel sit amet massa. Donec non ornare lectus, eu fermentum tellus.</p>
+            
+                <h3 id="c2">Capítulo 2</h3>
+                <p>Vivamus suscipit tempus mattis. Nulla varius velit non interdum suscipit. In id massa purus. Vivamus molestie sollicitudin ligula non dapibus. Donec nec molestie augue. Maecenas ullamcorper ac urna in fermentum. Nullam eget feugiat erat. Integer ac libero faucibus, molestie lorem at, feugiat nulla. Nullam ultrices eros vel tempus imperdiet. Phasellus accumsan ligula massa, id consequat ipsum tincidunt sit amet. Curabitur purus nulla, viverra sed scelerisque ut, malesuada vel elit. Ut volutpat felis in diam molestie pretium. Morbi vulputate cursus lorem, in sagittis leo fermentum ac. Proin vel consequat mi. Quisque porta felis in feugiat interdum.</p>
+                <p>Vivamus suscipit tempus mattis. Nulla varius velit non interdum suscipit. In id massa purus. Vivamus molestie sollicitudin ligula non dapibus. Donec nec molestie augue. Maecenas ullamcorper ac urna in fermentum. Nullam eget feugiat erat. Integer ac libero faucibus, molestie lorem at, feugiat nulla. Nullam ultrices eros vel tempus imperdiet. Phasellus accumsan ligula massa, id consequat ipsum tincidunt sit amet. Curabitur purus nulla, viverra sed scelerisque ut, malesuada vel elit. Ut volutpat felis in diam molestie pretium. Morbi vulputate cursus lorem, in sagittis leo fermentum ac. Proin vel consequat mi. Quisque porta felis in feugiat interdum.</p>
+                
+                <h3 id="c3">Capítulo 3</h3>
+                <p>Donec mollis justo et est tempus feugiat. Mauris semper justo vel lacus scelerisque, eu consectetur nisl efficitur. Morbi euismod eleifend luctus. Etiam ornare, risus at tempor pharetra, tellus ligula suscipit purus, convallis eleifend tortor massa eu libero. Integer hendrerit sollicitudin ligula sit amet convallis. Morbi convallis arcu ipsum, sit amet dapibus tortor vestibulum vitae. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut nec interdum justo. Donec porta fermentum porta. Phasellus in orci placerat, efficitur lorem id, mollis nunc. Praesent nec ligula eget tortor condimentum sodales vel sed nisi. Phasellus mauris dui, tincidunt sed nibh id, interdum gravida purus. Vestibulum hendrerit euismod dolor, id cursus mi dignissim sit amet. Sed interdum pellentesque libero id semper.</p>
+                <p>Donec mollis justo et est tempus feugiat. Mauris semper justo vel lacus scelerisque, eu consectetur nisl efficitur. Morbi euismod eleifend luctus. Etiam ornare, risus at tempor pharetra, tellus ligula suscipit purus, convallis eleifend tortor massa eu libero. Integer hendrerit sollicitudin ligula sit amet convallis. Morbi convallis arcu ipsum, sit amet dapibus tortor vestibulum vitae. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut nec interdum justo. Donec porta fermentum porta. Phasellus in orci placerat, efficitur lorem id, mollis nunc. Praesent nec ligula eget tortor condimentum sodales vel sed nisi. Phasellus mauris dui, tincidunt sed nibh id, interdum gravida purus. Vestibulum hendrerit euismod dolor, id cursus mi dignissim sit amet. Sed interdum pellentesque libero id semper.</p>
+                
+                <h3 id="c4">Capítulo 4</h3>
+                <p>Donec eu tellus sed orci pharetra ullamcorper. Maecenas convallis vestibulum neque, luctus egestas dui dignissim et. Maecenas fringilla felis porta, convallis massa eget, bibendum libero. Vivamus aliquam finibus nibh ac aliquet. Vivamus ac mollis lectus. Duis tristique semper nibh, sit amet accumsan odio. In aliquam ut tellus sed elementum. Fusce convallis viverra velit, vitae consequat turpis consequat quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet consectetur ante. Sed ac scelerisque est, nec fermentum sem. Vivamus aliquam placerat blandit. Duis non rhoncus tortor, sed finibus quam. Sed at lorem vestibulum, blandit nulla dictum, pellentesque nunc.</p>
+                <p>Donec eu tellus sed orci pharetra ullamcorper. Maecenas convallis vestibulum neque, luctus egestas dui dignissim et. Maecenas fringilla felis porta, convallis massa eget, bibendum libero. Vivamus aliquam finibus nibh ac aliquet. Vivamus ac mollis lectus. Duis tristique semper nibh, sit amet accumsan odio. In aliquam ut tellus sed elementum. Fusce convallis viverra velit, vitae consequat turpis consequat quis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet consectetur ante. Sed ac scelerisque est, nec fermentum sem. Vivamus aliquam placerat blandit. Duis non rhoncus tortor, sed finibus quam. Sed at lorem vestibulum, blandit nulla dictum, pellentesque nunc.</p>
+                
+                <h3 id="c5">Capítulo 5</h3>
+                <p>Suspendisse eget erat arcu. Nunc tincidunt magna id vehicula malesuada. Nam finibus libero id diam sollicitudin faucibus. Phasellus accumsan orci eu sem tristique ultrices. Mauris ornare, justo id interdum tempus, magna arcu varius mauris, sed suscipit mi lacus vestibulum nibh. Morbi iaculis non justo vel consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas rhoncus risus in lobortis bibendum. Phasellus nec eleifend tortor, sed luctus libero. In vel pretium ligula.</p>
+                <p>Suspendisse eget erat arcu. Nunc tincidunt magna id vehicula malesuada. Nam finibus libero id diam sollicitudin faucibus. Phasellus accumsan orci eu sem tristique ultrices. Mauris ornare, justo id interdum tempus, magna arcu varius mauris, sed suscipit mi lacus vestibulum nibh. Morbi iaculis non justo vel consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas rhoncus risus in lobortis bibendum. Phasellus nec eleifend tortor, sed luctus libero. In vel pretium ligula.</p>
+                
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <script src="bootstrap-4.3.1-dist/js/jquery-3.4.0.min.js"></script>
+        <script src="bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <script text="text/javascript">
+            $('#caixaLivro').scrollspy( {
+                target: '#livroCapitulos'
+            });
+        </script>
+    </footer>
+</body>
+</html>

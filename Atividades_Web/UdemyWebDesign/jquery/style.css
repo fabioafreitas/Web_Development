@@ -1,0 +1,52 @@
+.estilo-div-header {
+    background-color: cadetblue;
+    height: 150px
+}
+
+.estilo-div-direita {
+    background-color: gold;
+    height: 400px
+}
+
+.estilo-div-esquerda {
+    background-color: darkgoldenrod;
+    height: 400px
+}
+
+.estilo-div-footer {
+    background-color: burlywood;
+    height: 50px
+}
+
+.estilo-container {
+    background-color: white;
+    text-shadow: 1px 1px 1px #111111
+}
+
+.estilo-div-claro {
+    background-color: azure;
+    height: 250px;
+}
+
+.estilo-div-escuro {
+    background-color: burlywood;
+    height: 250px;
+    color: aliceblue;
+}
+
+.estilo-div-escuro button{
+    background-color: darkblue;
+}
+
+#jequiti {
+    margin: 20px;
+    border-style: solid;
+    border-width: 2px;
+    //display: none;
+}
+
+
+.borda-solida {
+    border-style: solid;
+    border-width: 6px 6px 6px 3px ;
+}

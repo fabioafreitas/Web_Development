@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>FUNDAMENTOS DE JS</title>
+</head>
+<body onload="dadosIniciais()">
+    <h1>Exemplo de Manipulação de Array e Objetos em JavaScript</h1>
+    <form onsubmit="return false"> <!-- retorna falso, para não dar refresh na página -->
+      <fieldset>
+        <legend>Manutenção de Funcionários</legend><br>
+        Por favor, preencha os dados abaixo:<br><br>
+        CPF: <input type="text" id="cpf" name="cpf" required>
+        Nome: <input type="text" id="nome" name="nome">
+        Cargo: <input type="text" id="cargo" name="cargo">
+        Salário: <input type="text" id="salario" name="salario">
+        <input type="submit" value="Adicionar" onclick="adicionar()">
+      </fieldset>
+    </form><br>
+    <h2 style="border-style: solid;">Lista de Funcionários</h2>
+    <form onsubmit="return false">
+      <input type="button" onclick="orderByCPF()" value="Ordenar por Cpf">
+      <input type="button" onclick="orderByNome()" value="Ordenar por Nome">
+      <input type="button" onclick="orderBySalario()" value="Ordenar por Salário (DESC)">
+      Salario maior que:
+      <input type="text" id="textFilter">
+      <input type="button" onclick="filtrar()" value="Filtrar">
+    </form><br>
+    <table id="tabela">
+      <tr>
+        <th style="width:10%">Cpf</th>
+        <th style="width:30%">Nome</th>
+        <th style="width:25%">Cargo</th>
+        <th style="width:25%">Salário</th>
+        <th style="width:10%"></th>
+      </tr>
+    </table>
+    <footer>
+        <script src="script.js" type="text/javascript"></script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    font-family: consolas;
+}
+
+p {
+    color: #FF7F50;
+    font-size: 40px;
+    font-family: arial, "Times new roman";
+}
+
+body {
+    background-color: #000000;
+}
+
+header {
+    background-color: greenyellow;
+    height: 100px
+}
+
+#div_left {
+    background-color: yellow;
+    color: firebrick;
+    min-height: 200px;
+    width: 50%;
+    float: left;
+}
+
+/* IDs */
+#div_right {
+    background-color: orangered;
+    color: darkblue;
+    min-height: 200px;
+    width: 50%;
+    float: right;
+}
+
+
+footer {
+    clear: both;
+    background-color:  skyblue;
+    height: 80px;
+}
+
+/* CLASSEs */
+
+.container {
+    width: 900px;
+    margin: auto;
+}
